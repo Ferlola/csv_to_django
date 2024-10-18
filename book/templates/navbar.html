@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title>Libreria</title>
+</head>
+<body>
+    <h1>
+        <a href="{% url 'book:index' %}">Home</a>
+        <a href="{% url 'book:book' %}">All books</a>
+        <a href="{% url 'book:search' %}">Search</a>
+    </h1>
+
+    
+    <p></p>
+    {% block content %}
+    {% endblock %}

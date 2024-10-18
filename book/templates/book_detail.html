@@ -1,0 +1,24 @@
+{% extends "navbar.html" %}
+{% block content %}
+<ul><h3>
+<li>Title: {{ object.title }}</li>
+<li>Author: {{ object.author }}</li>
+<li>Price: {{ object.price }}</li>
+<li>Price Used: {{ object.price_todos }}</li>
+<li>Pages: {{ object.pages }}</li>
+<li>Avg Reviews: {{ object.avg_reviews }}</li>
+<li>Number Reviews: {{ object.n_reviews }}</li>
+<li>Star 5: {{ object.star5  }}</li>
+<li>Star 4: {{ object.star4  }}</li>
+<li>Star 3: {{ object.star3  }}</li>
+<li>Star 2: {{ object.star2  }}</li>
+<li>Star 1: {{ object.star1  }}</li>
+<li>Dimensions: {{ object.dimensions }}</li>
+<li>Weight: {{ object.weight }}</li>
+<li>Language: {{ object.language }}</li>
+<li>Publisher: {{ object.publisher }}</li>
+<li>ISBN 13: {{ object.ISBN_13 }}</li>
+<li>Link: {{ object.link }}</li>
+<li><a href="{{ object.complete_link }}" target="blank">Complete link</a></li>
+</h3></ul>
+{% endblock %}

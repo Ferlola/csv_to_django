@@ -1,0 +1,9 @@
+{% extends "navbar.html" %}
+{% block content %}
+<ul>
+{% for book in object_list %}
+<h3>{{forloop.counter}}. {{ book.title }}<br>
+    {{ book.author }} <a href="{% url 'book:book_detail' book.id %}">detalles</a></h3>
+{%  endfor  %}
+</ul>
+{% endblock %}

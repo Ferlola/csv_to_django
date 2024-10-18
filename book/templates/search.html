@@ -1,0 +1,52 @@
+{% extends "navbar.html" %}
+{% block content %}
+<table width="100%">
+    <tbody>
+        <tr>
+            <td>
+<form action="{% url 'book:search' %}" method="POST">
+    {% csrf_token %} 
+   <h3>Title: <input type="text" name="title" placeholder="Title">
+    <input type="submit" name="submit" value="Search"></h3> 
+</form>
+<form action="{% url 'book:search' %}" method="POST">
+    {% csrf_token %} 
+    <h3>Author:  <input type="text" name="author" placeholder="Author">
+    <input type="submit" name="submit" value="Search"></h3> 
+</form>
+</td>
+<td>
+    <form action="{% url 'book:search' %}" method="POST">
+        {% csrf_token %} 
+        <h3>Publisher:  <input type="text" name="publisher" placeholder="Publisher">
+        <input type="submit" name="submit" value="Search"></h3> 
+    </form>
+    </td>    
+</td>
+<td>
+<form action="{% url 'book:search' %}" method="POST">
+    {% csrf_token %} 
+    <h3>Precio minimo:  <input type="text" name="price_min" required="True" placeholder="Min price">
+    <h3>Precio maximo:  <input type="text" name="price_max" required="True" placeholder="Max price">
+    <input type="submit" name="submit" value="Search"></h3> 
+</form>
+</td>
+</tr>
+</tbody>
+</table>
+{% for result in results %}
+<h3>{{forloop.counter}}. {{ result.title }}<br>
+    {{ result.author }} <a href="{% url 'book:book_detail' result.id %}">detalles</a></h3>
+{% endfor %}
+
+{% for precio in precios %}
+<h3>{{forloop.counter}}. Price: {{ precio.price}}<br>
+    Author: {{ precio.author }} <br>
+    Book: {{ precio.title   }}<br>
+    <a href="{% url 'book:book_detail' precio.id %}">detalles</a></h3>   
+{% endfor %}
+
+
+{% endblock %}
+</body>
+</html>       
